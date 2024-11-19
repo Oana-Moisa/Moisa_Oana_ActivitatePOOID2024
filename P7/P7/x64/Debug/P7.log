@@ -1,0 +1,17 @@
+﻿  P7.cpp
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(34,9): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(42,9): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(50,9): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(68,9): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(119,35): error C2504: 'Lentile': base class undefined
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(125,28): error C2614: 'LentileTerapeutice': illegal member initialization: 'Lentile' is not a base or member
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(129,11): error C2614: 'LentileTerapeutice': illegal member initialization: 'Lentile' is not a base or member
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(140,1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(140,34): error C2146: syntax error: missing '>' before identifier 'Lentile'
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(157,40): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(165,5): error C2065: 'Lentile': undeclared identifier
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(165,14): error C2065: 'lt2': undeclared identifier
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(165,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(166,14): error C2065: 'lt2': undeclared identifier
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(167,12): error C2065: 'lt2': undeclared identifier
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P7\P7.cpp(167,5): error C2541: 'delete': cannot delete objects that are not pointers

@@ -1,0 +1,28 @@
+﻿  P5.cpp
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P5\P5.cpp(34,9): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P5\P5.cpp(42,9): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P5\P5.cpp(50,9): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P5\P5.cpp(68,9): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1420,27): error C2280: 'Ochelari &Ochelari::operator =(const Ochelari &)': attempting to reference a deleted function
+  (compiling source file 'P5.cpp')
+  C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P5\P5.cpp(78,1):
+  compiler has generated 'Ochelari::operator =' here
+  C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P5\P5.cpp(78,1):
+  'Ochelari &Ochelari::operator =(const Ochelari &)': function was implicitly deleted because 'Ochelari' has a data member 'Ochelari::codUnic' of const-qualified non-class type
+  C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P5\P5.cpp(26,15):
+  see declaration of 'Ochelari::codUnic'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1420,27):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P5\P5.cpp(86,22):
+  	see reference to class template instantiation 'std::vector<Ochelari,std::allocator<Ochelari>>' being compiled
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1480,26):
+  	while compiling class template member function 'std::vector<Ochelari,std::allocator<Ochelari>> &std::vector<Ochelari,std::allocator<Ochelari>>::operator =(const std::vector<Ochelari,std::allocator<Ochelari>> &)'
+  		C:\Users\Oana Constantin\source\repos\Moisa_Oana_Nicoleta_ActivitatePOOID2024\Moisa_Oana_ActivitatePOOID2024\P5\P5.cpp(113,89):
+  		see the first reference to 'std::vector<Ochelari,std::allocator<Ochelari>>::operator =' in 'Optica::setOchelariDisponibili'
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1496,9):
+  	see reference to function template instantiation 'void std::vector<Ochelari,std::allocator<Ochelari>>::_Assign_counted_range<Ochelari*>(_Iter,const unsigned __int64)' being compiled
+          with
+          [
+              _Iter=Ochelari *
+          ]
+  
