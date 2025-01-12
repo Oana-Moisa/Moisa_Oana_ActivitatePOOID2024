@@ -29,6 +29,32 @@ Ochelari::~Ochelari() {
     numarOchelari--;
 }
 
+string Ochelari::getTipLentile() const {
+    return tipLentile;
+}
+
+void Ochelari::setTipLentile(string tipLentile) {
+    this->tipLentile = tipLentile;
+}
+
+const char* Ochelari::getMaterialRama() const {
+    return materialRama;
+}
+
+void Ochelari::setMaterialRama(const char* materialRama) {
+    delete[] this->materialRama;
+    this->materialRama = new char[strlen(materialRama) + 1];
+    strcpy_s(this->materialRama, strlen(materialRama) + 1, materialRama);
+}
+
+int Ochelari::getCodUnic() const {
+    return codUnic;
+}
+
+int Ochelari::getNumarOchelari() {
+    return numarOchelari;
+}
+
 void Ochelari::AfiseazaNumarOchelari() {
     cout << "Total ochelari: " << numarOchelari << endl;
 }
@@ -36,8 +62,13 @@ void Ochelari::AfiseazaNumarOchelari() {
 ostream& operator<<(ostream& out, const Ochelari& o) {
     out << "Tip Lentile: " << o.tipLentile
         << " Material Rama: " << o.materialRama
-        << " Cod ochelari: " << o.codUnic;
+        << " Cod Unic: " << o.codUnic;
     return out;
+}
+
+void procesareOchelari(Ochelari& o) {
+    o.setTipLentile("Procesate");
+    o.setMaterialRama("Metal");
 }
 
 Lentile::Lentile() : codSerie(0) {
@@ -68,6 +99,40 @@ Lentile::~Lentile() {
     numarLentile--;
 }
 
+string Lentile::getTipMaterial() const {
+    return tipMaterial;
+}
+
+void Lentile::setTipMaterial(string tipMaterial) {
+    this->tipMaterial = tipMaterial;
+}
+
+float Lentile::getDiametru() const {
+    return diametru;
+}
+
+void Lentile::setDiametru(float diametru) {
+    this->diametru = diametru;
+}
+
+const char* Lentile::getPrescriptie() const {
+    return prescriptie;
+}
+
+void Lentile::setPrescriptie(const char* prescriptie) {
+    delete[] this->prescriptie;
+    this->prescriptie = new char[strlen(prescriptie) + 1];
+    strcpy_s(this->prescriptie, strlen(prescriptie) + 1, prescriptie);
+}
+
+int Lentile::getCodSerie() const {
+    return codSerie;
+}
+
+int Lentile::getNumarLentile() {
+    return numarLentile;
+}
+
 void Lentile::AfiseazaNumarLentile() {
     cout << "Total lentile: " << numarLentile << endl;
 }
@@ -78,6 +143,11 @@ ostream& operator<<(ostream& out, const Lentile& l) {
         << " Prescriptie: " << l.prescriptie
         << " Cod lentile: " << l.codSerie;
     return out;
+}
+
+void procesareLentile(Lentile& l) {
+    l.setTipMaterial("Procesat");
+    l.setDiametru(15.0f);
 }
 
 Aparat::Aparat() : numarSerie(0) {
@@ -105,6 +175,32 @@ Aparat::~Aparat() {
     numarAparate--;
 }
 
+string Aparat::getModel() const {
+    return model;
+}
+
+void Aparat::setModel(string model) {
+    this->model = model;
+}
+
+const char* Aparat::getTehnologie() const {
+    return tehnologie;
+}
+
+void Aparat::setTehnologie(const char* tehnologie) {
+    delete[] this->tehnologie;
+    this->tehnologie = new char[strlen(tehnologie) + 1];
+    strcpy_s(this->tehnologie, strlen(tehnologie) + 1, tehnologie);
+}
+
+int Aparat::getNumarSerie() const {
+    return numarSerie;
+}
+
+int Aparat::getNumarAparate() {
+    return numarAparate;
+}
+
 void Aparat::AfiseazaNumarAparate() {
     cout << "Total aparate: " << numarAparate << endl;
 }
@@ -114,4 +210,9 @@ ostream& operator<<(ostream& out, const Aparat& a) {
         << " Tehnologie: " << a.tehnologie
         << " Serie aparat: " << a.numarSerie;
     return out;
+}
+
+void procesareAparat(Aparat& a) {
+    a.setModel("Procesat");
+    a.setTehnologie("Ultrasunete");
 }
