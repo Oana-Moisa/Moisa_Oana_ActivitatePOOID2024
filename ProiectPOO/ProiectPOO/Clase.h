@@ -25,13 +25,18 @@ public:
     void setMaterialRama(const char* materialRama);
 
     int getCodUnic() const;
-
     static int getNumarOchelari();
+
+    Ochelari& operator=(const Ochelari& other);
+    Ochelari operator+(const Ochelari& other);
+    bool operator==(const Ochelari& other);
+    Ochelari& operator++();
 
     static void AfiseazaNumarOchelari();
 
     friend ostream& operator<<(ostream& out, const Ochelari& o);
     friend void procesareOchelari(Ochelari& o);
+    friend void schimbaMaterial(Ochelari& o, const char* materialNou);
 };
 
 class Lentile {
@@ -58,13 +63,18 @@ public:
     void setPrescriptie(const char* prescriptie);
 
     int getCodSerie() const;
-
     static int getNumarLentile();
+
+    Lentile& operator=(const Lentile& other);
+    Lentile operator-(float reducereDiametru);
+    bool operator!=(const Lentile& other);
+    Lentile& operator--();
 
     static void AfiseazaNumarLentile();
 
     friend ostream& operator<<(ostream& out, const Lentile& l);
     friend void procesareLentile(Lentile& l);
+    friend float calculPret(const Lentile& l);
 };
 
 class Aparat {
@@ -72,11 +82,13 @@ private:
     string model;
     char* tehnologie;
     const int numarSerie;
+    string filtru;
+    float rezolutieOptica;
     static int numarAparate;
 
 public:
     Aparat();
-    Aparat(string model, const char* tehnologie, int numarSerie);
+    Aparat(string model, const char* tehnologie, int numarSerie, string filtru, float rezolutieOptica);
     Aparat(const Aparat& other);
     ~Aparat();
 
@@ -86,14 +98,27 @@ public:
     const char* getTehnologie() const;
     void setTehnologie(const char* tehnologie);
 
-    int getNumarSerie() const;
+    string getFiltru() const;
+    void setFiltru(string filtru);
 
+    float getRezolutieOptica() const;
+    void setRezolutieOptica(float rezolutieOptica);
+
+    int getNumarSerie() const;
     static int getNumarAparate();
+
+    Aparat& operator=(const Aparat& other);
+    Aparat operator+(const Aparat& other);
+    bool operator==(const Aparat& other);
+    Aparat& operator++();
+    Aparat operator!();
 
     static void AfiseazaNumarAparate();
 
     friend ostream& operator<<(ostream& out, const Aparat& a);
     friend void procesareAparat(Aparat& a);
+    friend void actualizeazaRezolutie(Aparat& a, float nouaRezolutie);
+    friend void schimbaFiltru(Aparat& a, const string& nouFiltru);
 };
 
 #endif

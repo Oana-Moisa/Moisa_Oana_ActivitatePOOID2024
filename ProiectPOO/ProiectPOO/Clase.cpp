@@ -29,50 +29,50 @@ Ochelari::~Ochelari() {
     numarOchelari--;
 }
 
-string Ochelari::getTipLentile() const {
-    return tipLentile;
+Ochelari& Ochelari::operator=(const Ochelari& other) {
+    if (this != &other) {
+        delete[] materialRama;
+        tipLentile = other.tipLentile;
+        materialRama = new char[strlen(other.materialRama) + 1];
+        strcpy_s(materialRama, strlen(other.materialRama) + 1, other.materialRama);
+    }
+    return *this;
 }
 
-void Ochelari::setTipLentile(string tipLentile) {
-    this->tipLentile = tipLentile;
+Ochelari Ochelari::operator+(const Ochelari& other) {
+    Ochelari temp(*this);
+    temp.tipLentile += " & " + other.tipLentile;
+    return temp;
 }
 
-const char* Ochelari::getMaterialRama() const {
-    return materialRama;
+bool Ochelari::operator==(const Ochelari& other) {
+    return tipLentile == other.tipLentile && strcmp(materialRama, other.materialRama) == 0;
 }
 
-void Ochelari::setMaterialRama(const char* materialRama) {
-    delete[] this->materialRama;
-    this->materialRama = new char[strlen(materialRama) + 1];
-    strcpy_s(this->materialRama, strlen(materialRama) + 1, materialRama);
-}
-
-int Ochelari::getCodUnic() const {
-    return codUnic;
-}
-
-int Ochelari::getNumarOchelari() {
-    return numarOchelari;
+Ochelari& Ochelari::operator++() {
+    tipLentile += " Premium";
+    return *this;
 }
 
 void Ochelari::AfiseazaNumarOchelari() {
-    cout << "Total ochelari: " << numarOchelari << endl;
+    cout << "Numar total de ochelari: " << numarOchelari << endl;
 }
 
 ostream& operator<<(ostream& out, const Ochelari& o) {
     out << "Tip Lentile: " << o.tipLentile
-        << " Material Rama: " << o.materialRama
-        << " Cod Unic: " << o.codUnic;
+        << ", Material Rama: " << o.materialRama
+        << ", Cod Unic: " << o.codUnic;
     return out;
 }
 
-void procesareOchelari(Ochelari& o) {
-    o.setTipLentile("Procesate");
-    o.setMaterialRama("Metal");
+void schimbaMaterial(Ochelari& o, const char* materialNou) {
+    delete[] o.materialRama;
+    o.materialRama = new char[strlen(materialNou) + 1];
+    strcpy_s(o.materialRama, strlen(materialNou) + 1, materialNou);
 }
 
 Lentile::Lentile() : codSerie(0) {
-    tipMaterial = "Silicon";
+    tipMaterial = "Policarbonat";
     diametru = 14.0f;
     prescriptie = new char[strlen("General") + 1];
     strcpy_s(prescriptie, strlen("General") + 1, "General");
@@ -99,68 +99,64 @@ Lentile::~Lentile() {
     numarLentile--;
 }
 
-string Lentile::getTipMaterial() const {
-    return tipMaterial;
+Lentile& Lentile::operator=(const Lentile& other) {
+    if (this != &other) {
+        delete[] prescriptie;
+        tipMaterial = other.tipMaterial;
+        diametru = other.diametru;
+        prescriptie = new char[strlen(other.prescriptie) + 1];
+        strcpy_s(prescriptie, strlen(other.prescriptie) + 1, other.prescriptie);
+    }
+    return *this;
 }
 
-void Lentile::setTipMaterial(string tipMaterial) {
-    this->tipMaterial = tipMaterial;
+Lentile Lentile::operator-(float reducereDiametru) {
+    Lentile temp(*this);
+    temp.diametru -= reducereDiametru;
+    return temp;
 }
 
-float Lentile::getDiametru() const {
-    return diametru;
+bool Lentile::operator!=(const Lentile& other) {
+    return tipMaterial != other.tipMaterial || diametru != other.diametru;
 }
 
-void Lentile::setDiametru(float diametru) {
-    this->diametru = diametru;
-}
-
-const char* Lentile::getPrescriptie() const {
-    return prescriptie;
-}
-
-void Lentile::setPrescriptie(const char* prescriptie) {
-    delete[] this->prescriptie;
-    this->prescriptie = new char[strlen(prescriptie) + 1];
-    strcpy_s(this->prescriptie, strlen(prescriptie) + 1, prescriptie);
-}
-
-int Lentile::getCodSerie() const {
-    return codSerie;
-}
-
-int Lentile::getNumarLentile() {
-    return numarLentile;
+Lentile& Lentile::operator--() {
+    diametru -= 1.0f;
+    return *this;
 }
 
 void Lentile::AfiseazaNumarLentile() {
-    cout << "Total lentile: " << numarLentile << endl;
+    cout << "Numar total de lentile: " << numarLentile << endl;
 }
 
 ostream& operator<<(ostream& out, const Lentile& l) {
-    out << "Material Lentile: " << l.tipMaterial
-        << " Diametru: " << l.diametru
-        << " Prescriptie: " << l.prescriptie
-        << " Cod lentile: " << l.codSerie;
+    out << "Material: " << l.tipMaterial
+        << ", Diametru: " << l.diametru
+        << ", Prescriptie: " << l.prescriptie
+        << ", Cod Serie: " << l.codSerie;
     return out;
 }
 
-void procesareLentile(Lentile& l) {
-    l.setTipMaterial("Procesat");
-    l.setDiametru(15.0f);
+float calculPret(const Lentile& l) {
+    return l.diametru * 10.0f;
 }
 
+// Implementare clasa Aparat
 Aparat::Aparat() : numarSerie(0) {
     model = "Standard";
     tehnologie = new char[strlen("Laser") + 1];
     strcpy_s(tehnologie, strlen("Laser") + 1, "Laser");
+    filtru = "N/A";
+    rezolutieOptica = 0.0f;
     numarAparate++;
 }
 
-Aparat::Aparat(string model, const char* tehnologie, int numarSerie) : numarSerie(numarSerie) {
+Aparat::Aparat(string model, const char* tehnologie, int numarSerie, string filtru, float rezolutieOptica) : numarSerie(numarSerie) {
     this->model = model;
     this->tehnologie = new char[strlen(tehnologie) + 1];
     strcpy_s(this->tehnologie, strlen(tehnologie) + 1, tehnologie);
+    this->filtru = filtru;
+    this->rezolutieOptica = rezolutieOptica;
     numarAparate++;
 }
 
@@ -168,6 +164,8 @@ Aparat::Aparat(const Aparat& other) : numarSerie(other.numarSerie) {
     model = other.model;
     tehnologie = new char[strlen(other.tehnologie) + 1];
     strcpy_s(tehnologie, strlen(other.tehnologie) + 1, other.tehnologie);
+    filtru = other.filtru;
+    rezolutieOptica = other.rezolutieOptica;
 }
 
 Aparat::~Aparat() {
@@ -175,44 +173,71 @@ Aparat::~Aparat() {
     numarAparate--;
 }
 
-string Aparat::getModel() const {
-    return model;
+Aparat& Aparat::operator=(const Aparat& other) {
+    if (this != &other) {
+        delete[] tehnologie;
+        model = other.model;
+        tehnologie = new char[strlen(other.tehnologie) + 1];
+        strcpy_s(tehnologie, strlen(other.tehnologie) + 1, other.tehnologie);
+        filtru = other.filtru;
+        rezolutieOptica = other.rezolutieOptica;
+    }
+    return *this;
 }
 
-void Aparat::setModel(string model) {
-    this->model = model;
+Aparat Aparat::operator+(const Aparat& other) {
+    Aparat temp(*this);
+    temp.model += " & " + other.model;
+    return temp;
 }
 
-const char* Aparat::getTehnologie() const {
-    return tehnologie;
+bool Aparat::operator==(const Aparat& other) {
+    return model == other.model && filtru == other.filtru;
 }
 
-void Aparat::setTehnologie(const char* tehnologie) {
-    delete[] this->tehnologie;
-    this->tehnologie = new char[strlen(tehnologie) + 1];
-    strcpy_s(this->tehnologie, strlen(tehnologie) + 1, tehnologie);
+Aparat& Aparat::operator++() {
+    rezolutieOptica += 1.0f;
+    return *this;
 }
 
-int Aparat::getNumarSerie() const {
-    return numarSerie;
-}
-
-int Aparat::getNumarAparate() {
-    return numarAparate;
+Aparat Aparat::operator!() {
+    Aparat temp(*this);
+    temp.filtru = "Invers_" + temp.filtru;
+    return temp;
 }
 
 void Aparat::AfiseazaNumarAparate() {
-    cout << "Total aparate: " << numarAparate << endl;
+    cout << "Numar total de aparate: " << numarAparate << endl;
 }
 
 ostream& operator<<(ostream& out, const Aparat& a) {
-    out << "Aparat: " << a.model
-        << " Tehnologie: " << a.tehnologie
-        << " Serie aparat: " << a.numarSerie;
+    out << "Model: " << a.model
+        << ", Tehnologie: " << a.tehnologie
+        << ", Filtru: " << a.filtru
+        << ", Rezolutie Optica: " << a.rezolutieOptica
+        << ", Serie: " << a.numarSerie;
     return out;
 }
 
-void procesareAparat(Aparat& a) {
-    a.setModel("Procesat");
-    a.setTehnologie("Ultrasunete");
+void actualizeazaRezolutie(Aparat& a, float nouaRezolutie) {
+    a.rezolutieOptica = nouaRezolutie;
 }
+
+void schimbaFiltru(Aparat& a, const string& nouFiltru) {
+    a.filtru = nouFiltru;
+}
+
+/*void procesareOchelari(Ochelari& o) {
+    o.setTipLentile("Progresive");
+    o.setMaterialRama("Titan");
+}
+
+void procesareLentile(Lentile& l) {
+    l.setTipMaterial("Antireflex");
+    l.setDiametru(l.getDiametru() + 0.5f);
+}
+
+void procesareAparat(Aparat& a) {
+    a.setModel("Avansat");
+    a.setTehnologie("Ultrasunete");
+}*/
